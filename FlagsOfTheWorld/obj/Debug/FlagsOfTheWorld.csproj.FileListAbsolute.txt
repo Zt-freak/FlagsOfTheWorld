@@ -8,7 +8,6 @@ C:\Users\bnkho\source\repos\FlagsOfTheWorld\FlagsOfTheWorld\obj\Debug\FlagsOfThe
 C:\Users\bnkho\source\repos\FlagsOfTheWorld\FlagsOfTheWorld\obj\Debug\FlagsOfTheWorld.csproj.CoreCompileInputs.cache
 C:\Users\bnkho\source\repos\FlagsOfTheWorld\FlagsOfTheWorld\obj\Debug\FlagsOfTheWorld.exe
 C:\Users\bnkho\source\repos\FlagsOfTheWorld\FlagsOfTheWorld\obj\Debug\FlagsOfTheWorld.pdb
-C:\Users\bnkho\source\repos\FlagsOfTheWorld\FlagsOfTheWorld\bin\Debug\RestSharp.dll
 C:\Users\bnkho\source\repos\FlagsOfTheWorld\FlagsOfTheWorld\bin\Debug\RestSharp.xml
 C:\Users\bnkho\source\repos\FlagsOfTheWorld\FlagsOfTheWorld\obj\Debug\FlagsOfTheWorld.csproj.CopyComplete
 C:\Users\bnkho\source\repos\FlagsOfTheWorld\FlagsOfTheWorld\bin\Debug\Newtonsoft.Json.dll
