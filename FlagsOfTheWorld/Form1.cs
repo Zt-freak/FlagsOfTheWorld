@@ -84,23 +84,6 @@ namespace FlagsOfTheWorld
             CountriesRoot country = this.countries.FirstOrDefault(item => item.name == this.dropdown.Text);
             string flagURL;
 
-            // Hardcoded Flags
-            switch (country.alpha2Code)
-            {
-                case "BQ": // Bonaire, Sint Eustatius and Saba
-                    country = this.countries.FirstOrDefault(item => item.alpha2Code == "NL");
-                    break;
-                case "BV": // Bouvet Island
-                    country = this.countries.FirstOrDefault(item => item.alpha2Code == "NO");
-                    break;
-                case "UM": // United States Minor Outlying Islands
-                    country = this.countries.FirstOrDefault(item => item.alpha2Code == "US");
-                    break;
-                case "HM": // Heard Island and McDonald Islands
-                    country = this.countries.FirstOrDefault(item => item.alpha2Code == "AU");
-                    break;
-            }
-
             switch (this.gameMode)
             {
                 case 0: // practice mode
@@ -139,6 +122,24 @@ namespace FlagsOfTheWorld
             var random = new Random();
             int randomIndex = random.Next(this.countries.Count);
             this.currentCountry = this.countries[randomIndex];
+
+            // Hardcoded Flags
+            switch (this.currentCountry.alpha2Code)
+            {
+                case "BQ": // Bonaire, Sint Eustatius and Saba
+                    this.currentCountry = this.countries.FirstOrDefault(item => item.alpha2Code == "NL");
+                    break;
+                case "BV": // Bouvet Island
+                    this.currentCountry = this.countries.FirstOrDefault(item => item.alpha2Code == "NO");
+                    break;
+                case "UM": // United States Minor Outlying Islands
+                    this.currentCountry = this.countries.FirstOrDefault(item => item.alpha2Code == "US");
+                    break;
+                case "HM": // Heard Island and McDonald Islands
+                    this.currentCountry = this.countries.FirstOrDefault(item => item.alpha2Code == "AU");
+                    break;
+            }
+
             string flagURL = "https://www.countryflags.io/" + this.currentCountry.alpha2Code + "/flat/64.png";
             this.flagBox.Load(flagURL);
         }
