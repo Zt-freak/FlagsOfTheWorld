@@ -1,6 +1,4 @@
-﻿using System.Windows.Forms;
-
-namespace FlagsOfTheWorld
+﻿namespace FlagsOfTheWorld
 {
     partial class Form1
     {
@@ -35,6 +33,7 @@ namespace FlagsOfTheWorld
             this.scoreLabel = new System.Windows.Forms.Label();
             this.switchModeButton = new System.Windows.Forms.Button();
             this.submitButton = new System.Windows.Forms.Button();
+            this.answerLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.flagBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,7 +79,7 @@ namespace FlagsOfTheWorld
             // 
             // submitButton
             // 
-            this.submitButton.Location = new System.Drawing.Point(125, 167);
+            this.submitButton.Location = new System.Drawing.Point(125, 115);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(64, 23);
             this.submitButton.TabIndex = 5;
@@ -88,11 +87,21 @@ namespace FlagsOfTheWorld
             this.submitButton.UseVisualStyleBackColor = true;
             this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
             // 
+            // answerLabel
+            // 
+            this.answerLabel.AutoSize = true;
+            this.answerLabel.Location = new System.Drawing.Point(12, 156);
+            this.answerLabel.Name = "answerLabel";
+            this.answerLabel.Size = new System.Drawing.Size(85, 16);
+            this.answerLabel.TabIndex = 6;
+            this.answerLabel.Text = "answerLabel";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(319, 278);
+            this.Controls.Add(this.answerLabel);
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.switchModeButton);
             this.Controls.Add(this.scoreLabel);
@@ -104,6 +113,7 @@ namespace FlagsOfTheWorld
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.flagBox)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -114,6 +124,7 @@ namespace FlagsOfTheWorld
         private System.Windows.Forms.Label scoreLabel;
         private System.Windows.Forms.Button switchModeButton;
         private System.Windows.Forms.Button submitButton;
+        private System.Windows.Forms.Label answerLabel;
     }
 }
 

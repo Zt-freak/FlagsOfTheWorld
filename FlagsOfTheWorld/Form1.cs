@@ -1,17 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Diagnostics;
 using System.IO;
-using System.Web;
 using System.Net;
-using System.Reflection;
 using Newtonsoft.Json;
 
 namespace FlagsOfTheWorld
@@ -27,7 +19,6 @@ namespace FlagsOfTheWorld
         public Form1()
         {
             this.countries = this.Fetch_countries();
-            //Debug.WriteLine(this.countries);
             InitializeComponent();
         }
 
@@ -35,6 +26,7 @@ namespace FlagsOfTheWorld
         {
             this.Fill_dropdown(this.dropdown, this.countries);
             this.switchModeButton.Text = "play";
+            this.answerLabel.Text = "";
         }
 
         private List<CountriesRoot> Fetch_countries()
@@ -51,7 +43,6 @@ namespace FlagsOfTheWorld
                 using (StreamReader responseReader = new StreamReader(webStream))
                 {
                     string response = responseReader.ReadToEnd();
-                    Console.Out.WriteLine(response);
                     return JsonConvert.DeserializeObject<List<CountriesRoot>>(response);
                 }
             }
@@ -72,6 +63,8 @@ namespace FlagsOfTheWorld
 
         private void switchModeButton_Click(object sender, EventArgs e)
         {
+            this.answerLabel.Text = "";
+            this.score = 0;
             switch (this.gameMode)
             {
                 case 0: // practice mode to game mode
@@ -90,6 +83,24 @@ namespace FlagsOfTheWorld
         {
             CountriesRoot country = this.countries.FirstOrDefault(item => item.name == this.dropdown.Text);
             string flagURL;
+
+            // Hardcoded Flags
+            switch (country.alpha2Code)
+            {
+                case "BQ": // Bonaire, Sint Eustatius and Saba
+                    country = this.countries.FirstOrDefault(item => item.alpha2Code == "NL");
+                    break;
+                case "BV": // Bouvet Island
+                    country = this.countries.FirstOrDefault(item => item.alpha2Code == "NO");
+                    break;
+                case "UM": // United States Minor Outlying Islands
+                    country = this.countries.FirstOrDefault(item => item.alpha2Code == "US");
+                    break;
+                case "HM": // Heard Island and McDonald Islands
+                    country = this.countries.FirstOrDefault(item => item.alpha2Code == "AU");
+                    break;
+            }
+
             switch (this.gameMode)
             {
                 case 0: // practice mode
@@ -108,10 +119,12 @@ namespace FlagsOfTheWorld
                     {
                         if (country.alpha2Code == this.currentCountry.alpha2Code)
                         {
+                            this.answerLabel.Text = "Correct!";
                             this.score++;
                         }
                         else
                         {
+                            this.answerLabel.Text = "Wrong!\nThe correct answer is:\n" + this.currentCountry.name;
                             this.score = 0;
                         }
                         this.scoreLabel.Text = "score: " + this.score.ToString();
